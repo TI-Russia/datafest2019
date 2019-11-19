@@ -269,10 +269,10 @@ def parser(fn, path):
 
         FDF
 
-        FDF.loc[:,'first_name'] = FDF.first_name.apply(transli)
-        FDF.loc[:,'last_name'] = FDF.last_name.apply(transli)
-        FDF.loc[:,'place_of_birth'] = FDF.place_of_birth.apply(transli)
-        FDF.loc[:,'relationship'] = FDF.relationship.apply(transli)
+        FDF.loc[:,'first_name_lat'] = FDF.first_name.apply(transli)
+        FDF.loc[:,'last_name_lat'] = FDF.last_name.apply(transli)
+        FDF.loc[:,'place_of_birth_lat'] = FDF.place_of_birth.apply(transli)
+        FDF.loc[:,'relationship_lat'] = FDF.relationship.apply(transli)
 
         dcl_data['family'] = json.loads(FDF.to_json(orient = "records", force_ascii=False))
 
@@ -288,11 +288,11 @@ def parser(fn, path):
         PDF.loc[:,'owner'] = PDF.owner.str.replace('\r', ' ')
         PDF.loc[:,'location_area'] = PDF.location_area.str.replace('\r', ' ')
 
-        PDF.loc[:,'owner'] = PDF.owner.apply(transli)
-        PDF.loc[:,'type'] = PDF.type.apply(transli)
-        PDF.loc[:,'purchase_type'] = PDF.purchase_type.apply(transli)
-        PDF.loc[:,'location_area'] = PDF.location_area.apply(transli)
-        PDF.loc[:,'owners'] = PDF.owners.apply(transli)
+        PDF.loc[:,'owner_lat'] = PDF.owner.apply(transli)
+        PDF.loc[:,'type_lat'] = PDF.type.apply(transli)
+        PDF.loc[:,'purchase_type_lat'] = PDF.purchase_type.apply(transli)
+        PDF.loc[:,'location_area_lat'] = PDF.location_area.apply(transli)
+        PDF.loc[:,'owners_lat'] = PDF.owners.apply(transli)
 
         dcl_data['purchase'] = json.loads(PDF.to_json(orient = "records", force_ascii=False))
 
